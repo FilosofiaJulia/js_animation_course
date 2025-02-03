@@ -42,8 +42,17 @@ body {
     left: 50% - 75px;
     width: 150px;
     height: 150px;
-    background-color:chartreuse; 
+    background-color:chartreuse;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     z-index: 2;
+}
+
+.square a {
+    font-size: 48px;
+    text-decoration: none;
+    text-align: center;
 }
 
 .backgroundCircle {
