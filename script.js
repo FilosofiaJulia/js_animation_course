@@ -1,14 +1,14 @@
 const canvas = document.getElementById('game');
 const ctx = canvas.getContext('2d');
 
-canvas.width = 400;
-canvas.height = 400;
+canvas.width = innerWidth;
+canvas.height = innerHeight;
 
 const player = {
     x: canvas.width / 2,
     y: canvas.height / 2,
     radius: 20,
-    speed: 3,
+    speed: 4,
     color: '#dfc252',
     dx: 0,
     dy: 0
@@ -90,7 +90,8 @@ function gameLoop() {
     if (dots.length === 0) {
         ctx.fillStyle = '#fff';
         ctx.font = '40px Tahoma';
-        ctx.fillText('Поздравляем!', 50, canvas.height / 2);
+        ctx.textAlign = "center";
+        ctx.fillText('Поздравляем!', canvas.width / 2, canvas.height / 2);  
         return;
     }
 
@@ -99,16 +100,16 @@ function gameLoop() {
 
 document.addEventListener('keydown', (event) => {
     switch (event.key) {
-        case 'ArrowUp':
+        case 'w':
             player.dy = -player.speed;
             break;
-        case 'ArrowDown':
+        case 's':
             player.dy = player.speed;
             break;
-        case 'ArrowLeft':
+        case 'a':
             player.dx = -player.speed;
             break;
-        case 'ArrowRight':
+        case 'd':
             player.dx = player.speed;
             break;
     }
@@ -116,12 +117,12 @@ document.addEventListener('keydown', (event) => {
 
 document.addEventListener('keyup', (event) => {
     switch (event.key) {
-        case 'ArrowUp':
-        case 'ArrowDown':
+        case 'w':
+        case 's':
             player.dy = 0;
             break;
-        case 'ArrowLeft':
-        case 'ArrowRight':
+        case 'a':
+        case 'd':
             player.dx = 0;
             break;
     }
