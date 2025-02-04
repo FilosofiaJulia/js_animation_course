@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" translate="no">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -22,10 +22,20 @@
 
         #game {
             background-color: #000;
+            z-index: 1;
         }
+
+        #timer {
+            position: absolute;
+            top: 0;
+            z-index: 2;
+        }
+
+
     </style>
 </head>
 <body>
+    <canvas id="timer"></canvas>
     <canvas id="game"></canvas>
 
     <script src="script.js"></script>

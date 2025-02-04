@@ -1,8 +1,43 @@
+const canvasTimer = document.getElementById('timer');
+const context = canvasTimer.getContext('2d');
+
+canvasTimer.width = 100;
+canvasTimer.height = 50;
+
+let myReq
+let timeStop = false;
+let end;
+const now = Date.now;
+const duration = 30000;
+function displayCountdown() {
+    const count = parseInt((end - now()) / 1000);
+    context.clearRect(0, 0, canvasTimer.width, canvasTimer.height);
+    context.font = "40px Tahoma";
+    context.fillStyle = "#00FF0A";
+    context.textAlign = 'center';
+    context.fillText(count, canvasTimer.width / 2, 40); 
+    if (count > 0) {
+        myReq = window.requestAnimationFrame(displayCountdown);
+    } else {
+        cancelAnimationFrame(myReq); 
+        timeStop = true;
+        console.log(timeStop);
+        return  timeStop;   
+    }
+}
+
+function start() {
+    end = now() + duration;
+    myReq = window.requestAnimationFrame(displayCountdown);
+}
+
+start();
+
 const canvas = document.getElementById('game');
 const ctx = canvas.getContext('2d');
 
-canvas.width = innerWidth;
-canvas.height = innerHeight;
+canvas.width = document.documentElement.clientWidth;
+canvas.height = document.documentElement.clientHeight;
 
 const player = {
     x: canvas.width / 2,
@@ -20,13 +55,12 @@ function drawPlayer(x, y, radius, color) {
     ctx.fillStyle = color;
     ctx.fill();
     ctx.closePath();
-}
-
+} 
 
 const dots = [];
 let dotCount = 20;
 let dotRadius = 10;
-let dotColor = '#10375c';
+let dotColor = '#526fdf';
 
 function drawDots() {
     for (let i = 0; i < dots.length; i++) {
@@ -86,12 +120,22 @@ function gameLoop() {
     drawDots();
     updatePlayer();
     checkCollision();
-
-    if (dots.length === 0) {
+    console.log(dots.length);
+    
+    if (dots.length === 0 && !timeStop) {
         ctx.fillStyle = '#fff';
         ctx.font = '40px Tahoma';
         ctx.textAlign = "center";
-        ctx.fillText('Поздравляем!', canvas.width / 2, canvas.height / 2);  
+        ctx.fillText('Поздравляем!', canvas.width / 2, canvas.height / 2);
+        cancelAnimationFrame(myReq); 
+        return;        
+    } 
+    
+    if (timeStop && dots.length !== 0){
+        ctx.fillStyle = '#fff';
+        ctx.font = '40px Tahoma';
+        ctx.textAlign = "center";
+        ctx.fillText('Время вышло!', canvas.width / 2, canvas.height / 2);
         return;
     }
 
