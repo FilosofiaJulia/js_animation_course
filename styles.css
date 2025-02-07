@@ -66,7 +66,7 @@ body {
     z-index: 1;
 }
 
-.circle2 a {
+.circle2 a, .circle3 a {
     font-size: 24px;
     text-decoration: none;
     text-align: center;
