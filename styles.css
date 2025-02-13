@@ -14,30 +14,21 @@ body {
     background-color:black;
 }
 
-.circle1 {
+.circle1, .circle2, .circle3 {
     position: absolute;
     top: 20px;
     left: 20px;
     width: 100px;
     height: 100px;
     border-radius: 50%;
-    background-color:blueviolet;
-    z-index: 2;
-}
-
-.circle2, .circle3 {
-    position: absolute;
-    top: 20px;
-    left: 20px;
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    background-color:red;
     display: flex;
     justify-content: center;
     align-items: center;
     z-index: 2;
 }
+
+.blueviolet{background-color:blueviolet;}
+.red {background-color:red;}
 
 .square {
     position: absolute;
@@ -66,7 +57,7 @@ body {
     z-index: 1;
 }
 
-.circle2 a, .circle3 a {
+.circle1 a, .circle2 a, .circle3 a {
     font-size: 24px;
     text-decoration: none;
     text-align: center;

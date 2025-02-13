@@ -30,3 +30,22 @@
 3. Разместите их на разных позициях в трехмерном пространстве, используя `.position.set(x, y, z)`
 4. Задайте каждому объекту уникальный цвет
 5. Убедитесь, что камера видит все три объекта
+
+## Lesson 30: Materials and Textures ##
+
+1. Создайте 9 кругов синего цвета, чтобы они стояли в ряд 3х3 и для каждого выполните следующие настройки
+* 1 круг, материал - Basic
+* 2 круг, материал - Lambert
+* 3 круг, материал - Phong,
+* 4 круг, материал - Phong, уровень бликов shininess = 0
+* 5 круг, материал - Phong, уровень бликов shininess = 30
+* 6 круг, материал - Phong, уровень бликов shininess = 150
+* 7 круг, материал - Standard, roughness = 0, metalness = 0
+* 8 круг, материал - Standard, roughness = 0.5, metalness = 0.5
+* 9 круг, материал - Standard, roughness = 1, metalness = 1
+
+2. Подключение текстуры
+* Скачайте [исходный код](https://disk.yandex.ru/d/FoUbSjEsnE0m9g) для начала работы
+* Подключите [эту текстуру](https://raw.githubusercontent.com/timoxley/threejs/master/examples/textures/land_ocean_ice_cloud_2048.jpg) - именно ссылку, не сохраняя изображение локально в проект
+* Замените `color:0xff0000` на текстуру в сфере
+* У вас должен получиться [такой итог](https://disk.yandex.ru/d/xoM48IzwJBdGIQ) после подключения текстуры на сферу
