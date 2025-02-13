@@ -21,6 +21,7 @@ sphere.position.y = 3;
 function createCircle(material, x, y) {
     const geometry = new THREE.CircleGeometry( 0.5, 32 );
     const materialCircle = material; 
+    const circle = new THREE.Mesh( geometry, materialCircle); 
     scene.add( circle );
     circle.position.x = x;
     circle.position.y = y;
